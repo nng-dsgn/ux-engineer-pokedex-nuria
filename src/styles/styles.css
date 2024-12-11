@@ -1,0 +1,143 @@
+/* Página completa */
+body{
+    background-color: var(--db-color-background);
+    font-family: var(--db-font-family);
+    color: var(--db-color-text);
+}
+
+.page__header-container{
+    display: flex;
+    justify-content: space-between;
+    padding: var(--db-spacing-s) var(--db-spacing-lg);
+    background-color: var(--db-color-white);
+}
+
+.page-nav__list{
+    display: flex;
+    gap: var(--db-spacing-md);
+}
+
+.page-nav__item{
+    text-decoration: none;
+    color: var(--db-color-black);
+}
+
+.page-nav__item.page-nav__item--primary{
+    background-color: var(--db-color-primary);
+    padding: var(--db-spacing-s);
+    color: var(--db-color-black);
+    border-radius: var(--db-border-radius-small);
+}
+
+.page-home_header{
+    padding: var(--db-spacing-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: var(--db-font-size-heading);
+    color: var(--db-color-primary);
+}
+
+.page-home_img-header{
+    max-width: 100%;
+    margin-bottom: var(--db-spacing-lg);
+}
+
+/* Card Container */
+.cards-container {
+    padding: var(--db-spacing-lg);
+    text-align: center;
+}
+
+.card {
+    background-color: var(--db-color-secondary);
+    border-radius: var(--db-border-radius);
+    box-shadow: var(--db-box-shadow);
+    overflow: visible; /* Asegúrate de que el contenido que sobresale no sea recortado */
+    width: var(--db-card-width);
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Imagen de fondo */
+.card-img-container {
+    position: relative;
+    height: var(--db-img-background-height);
+    overflow: hidden;
+    background-position: center center;
+    border-top-left-radius: var(--db-border-radius); /* Redondear la esquina superior izquierda */
+    border-top-right-radius: var(--db-border-radius); /* Redondear la esquina superior derecha */
+}
+
+.bg-card-img {
+    height: var(--db-img-background-height);
+    width: var(--db-img-background-width);
+    object-fit: cover;  /* Asegura que la imagen cubra el contenedor sin distorsionarse */
+}
+
+/* Imagen del personaje */
+.card-img {
+    position: absolute;
+    top: -30px; /* Hace que la imagen sobresalga */
+    transform: translateX(-50%);
+    height: var(--db-card-img-height);
+    object-fit: cover;
+    z-index: 1;
+    transition: transform var(--db-transition-fast);
+}
+
+
+/* Efecto de hover en la imagen */
+.card:hover .card-img {
+    transform: translateX(-50%) scale(1.1); /* Amplía la imagen en hover */
+}
+
+/* Contenido de la card */
+.card-content {
+    padding: var(--db-spacing-md);
+    position: relative;
+    z-index: 2;
+}
+
+.card-title {
+    font-size: var(--db-font-size-heading);
+    margin: var(--db-spacing-s) 0;
+    color: var(--db-color-primary);
+}
+
+.card-subtitle {
+    font-size: var(--db-font-size-base);
+    margin-bottom: var(--db-spacing-md);
+    color: var(--db-color-text);
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--db-spacing-md);
+}
+
+.card-info-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--db-font-size-base);
+    color: var(--db-color-text);
+}
+
+.info-label {
+    font-weight: bold;
+    color: var(--db-color-text);
+}
+
+.info-value {
+    color: var(--db-color-primary);
+}
+
+/* Footer */
+.page-footer {
+    background-color: var(--db-color-secondary);
+    padding: var(--db-spacing-lg);
+    color: var(--db-color-text);
+    text-align: center;
+}

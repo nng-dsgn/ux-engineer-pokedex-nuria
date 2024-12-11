@@ -1,0 +1,53 @@
+/** VARIABLES GENERALES **/
+:root {
+    /* Colores */
+    --db-color-primary: #fbc02d;  /* Color principal (amarillo Dragon Ball) */
+    --db-color-secondary: #3c3e44; /* Color secundario (gris oscuro) */
+    --db-color-background: #272B33; /* Fondo de la página */
+    --db-color-accent: #f9a825; /* Color de acento (amarillo más brillante) */
+    --db-color-text: #fff;  /* Color del texto */
+    --db-color-white: #ffffff; /* Blanco */
+    --db-color-black: #000000; /* Negro */
+    --db-color-border: #333333; /* Color para bordes y sombras */
+
+
+    /* Colores de los estados */
+    --db-color-hover: #ffeb3b; /* Color para hover */
+    --db-color-active: #f57c00; /* Color cuando el elemento está activo */
+    --db-color-disabled: #555; /* Color para elementos deshabilitados */
+
+    /* Tipografía */
+    --db-font-family: 'Arial', 'Helvetica', sans-serif;
+    --db-font-family-heading: 'Roboto', sans-serif;
+    --db-font-size-small: 0.875rem; /* Fuente pequeña */
+    --db-font-size-base: 1rem; /* Fuente base */
+    --db-font-size-large: 1.25rem; /* Fuente grande */
+    --db-font-size-heading: 1.8rem; /* Fuente de los títulos */
+    
+    /* Espaciado (márgenes, rellenos) */
+    --db-spacing-xs: 4px;
+    --db-spacing-s: 8px;
+    --db-spacing-md: 12px;
+    --db-spacing-lg: 16px;
+    --db-spacing-xl: 24px;
+    
+    /* Bordes y redondeos */
+    --db-border-radius: 8px;  /* Bordes redondeados generales */
+    --db-border-radius-small: 5px; /* Bordes redondeados pequeños */
+
+    /* Sombra */
+    --db-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --db-box-shadow-hover: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+    /* Tamaños */
+    --db-card-width: 320px; /* Ancho de la card */
+    --db-card-height: 450px; /* Altura de la card */
+    --db-card-img-height: 80%; /* Altura de la imagen de Goku */
+    --db-card-img-width: 100%; /* Ancho de la imagen de Goku */
+    --db-img-background-height: 100%; /* Altura de la imagen de fondo */
+    --db-img-background-width: 100%; /* Ancho de la imagen de fondo */
+
+    /* Transiciones */
+    --db-transition-fast: 0.3s ease;
+    --db-transition-slow: 0.6s ease;
+}

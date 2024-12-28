@@ -1,54 +1,65 @@
 /** VARIABLES GENERALES **/
 :root {
-    /* Colores */
-    --pokedex-color-primary: #DC0A2D;  /* Color principal */
-    --pokedex-color-bug: #A7B723;
-    --pokedex-color-dark: #75574C;
-    --pokedex-color-dragon: #7037FF;
-    --pokedex-color-electric: #F9CF30;
-    --pokedex-color-fairy: #E69EAC;
-    --pokedex-color-fighting: #C12239;
-    --pokedex-color-fire: #F57D31;
-    --pokedex-color-flying: #A891EC;
-    --pokedex-color-ghost: #70559B;
-    --pokedex-color-normal: #AAA67F;
-    --pokedex-color-grass: #74CB48;
-    --pokedex-color-ground: #DEC16B;
-    --pokedex-color-ice: #9AD6DF;
-    --pokedex-color-poison: #A43E9E;
-    --pokedex-color-psychic: #FB5584;
-    --pokedex-color-rock: #B69E31;
-    --pokedex-color-steel: #B7B9D0;
-    --pokedex-color-water: #6493EB;
+    /* Colores principales */
+    --pkd-color-primary: #DC0A2D;
+    --pkd-color-secondary: #FFFFFF;
+    --pkd-color-dark: #212121;
+    --pkd-color-medium: #666666;
+    --pkd-color-light: #E0E0E0;
+    --pkd-color-background: #EFEFEF;
 
-    --pokedex-color-dark-shade: #212121; /* Gris oscuro */
-    --pokedex-color-medium-shade: #666666; /* Gris medio */
-    --pokedex-color-light-shade: #E0E0E0; /* Gris claro */
-    --pokedex-color-background: #EFEFEF; /* Fondo */
-    --pokedex-color-white: #FFFFFF; /* Blanco */
+    /* Colores adicionales (Pokémon types) */
+    --pkd-color-bug: #A7B723;
+    --pkd-color-dark-type: #75574C;
+    --pkd-color-dragon: #7037FF;
+    --pkd-color-electric: #F9CF30;
+    --pkd-color-fairy: #E69EAC;
+    --pkd-color-fighting: #C12239;
+    --pkd-color-fire: #F57D31;
+    --pkd-color-flying: #A891EC;
+    --pkd-color-ghost: #70559B;
+    --pkd-color-normal: #AAA67F;
+    --pkd-color-grass: #74CB48;
+    --pkd-color-ground: #DEC16B;
+    --pkd-color-ice: #9AD6DF;
+    --pkd-color-poison: #A43E9E;
+    --pkd-color-psychic: #FB5584;
+    --pkd-color-rock: #B69E31;
+    --pkd-color-steel: #B7B9D0;
+    --pkd-color-water: #6493EB;
+
+    /* Sombras (colores generales) */
+    --pkd-color-dark-shade: #212121;
+    --pkd-color-medium-shade: #666666;
+    --pkd-color-light-shade: #E0E0E0;
+    --pkd-color-white: #FFFFFF;
 
     /* Tipografía */
-    --pokedex-font-family: 'Poppins', sans-serif;
-    --pokedex-font-size-headline: 24px; /* Headline */
-    --pokedex-font-size-subtitle3: 10px; /* Subtitle 3 */
-    --pokedex-font-size-subtitle1: 14px; /* Subtitle 1 */
-    --pokedex-font-size-subtitle2: 12px; /* Subtitle 2 */
-    --pokedex-font-size-body3: 10px; /* Body 3 */
-    --pokedex-font-size-body1: 14px; /* Body 1 */
-    --pokedex-font-size-body2: 12px; /* Body 2 */
-    --pokedex-font-size-caption: 8px; /* Caption */
+    --pkd-font-family: 'Poppins', sans-serif;
+    --pkd-font-size-headline: 24px;
+    --pkd-font-size-subtitle1: 14px; /* Subtitle 1 */
+    --pkd-font-size-subtitle2: 12px; /* Subtitle 2 */
+    --pkd-font-size-subtitle3: 10px; /* Subtitle 3 */
+    --pkd-font-size-body1: 14px; /* Body 1 */
+    --pkd-font-size-body2: 12px; /* Body 2 */
+    --pkd-font-size-body3: 10px; /* Body 3 */
+    --pkd-font-size-caption: 8px; /* Caption */
 
-    /* Espaciado (márgenes, rellenos) */
-    --pokedex-spacing-small: 10px;
-    --pokedex-spacing-medium: 15px;
-    --pokedex-spacing-large: 24px;
+    /* Espaciado */
+    --pkd-spacing-xs: 4px;
+    --pkd-spacing-s: 8px;
+    --pkd-spacing-m: 12px;
+    --pkd-spacing-l: 16px;
+    --pkd-spacing-xl: 24px;
 
-    /* Bordes y redondeos */
-    --pokedex-border-radius: 10px;  /* Bordes redondeados generales */
-    --pokedex-border-width: 2px; /* Ancho de los bordes */
+    /* Bordes */
+    --pkd-border-radius-xs: 8px;
+    --pkd-border-radius-s: 10px;
+    --pkd-border-radius-m: 16px;
+    --pkd-border-width: 2px;
 
     /* Sombras */
-    --pokedex-box-shadow-small: 0 1px 3px 1px rgba(0, 0, 0, 0.2);
-    --pokedex-box-shadow-large: 0 3px 12px 3px rgba(0, 0, 0, 0.2);
-    --pokedex-inner-shadow: inset 0 1px 3px 1px rgba(0, 0, 0, 0.25);
+    --pkd-shadow-small: 0 1px 3px rgba(0, 0, 0, 0.2);
+    --pkd-shadow-large: 0 3px 12px rgba(0, 0, 0, 0.2);
+    --pkd-shadow-inset: inset 0 1px 3px rgba(0, 0, 0, 0.25);
 }

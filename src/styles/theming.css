@@ -22,7 +22,7 @@
     --db-font-size-small: 0.875rem; /* Fuente pequeña */
     --db-font-size-base: 1rem; /* Fuente base */
     --db-font-size-large: 1.25rem; /* Fuente grande */
-    --db-font-size-heading: 1.8rem; /* Fuente de los títulos */
+    --db-font-size-heading: 3rem; /* Fuente de los títulos */
     
     /* Espaciado (márgenes, rellenos) */
     --db-spacing-xs: 4px;
@@ -30,10 +30,11 @@
     --db-spacing-md: 12px;
     --db-spacing-lg: 16px;
     --db-spacing-xl: 24px;
+    --db-spacing-xxl: 50px;
     
     /* Bordes y redondeos */
-    --db-border-radius: 8px;  /* Bordes redondeados generales */
-    --db-border-radius-small: 5px; /* Bordes redondeados pequeños */
+    --db-rounded-md: 8px;  /* Bordes redondeados generales */
+    --db-rounded-xs: 5px; /* Bordes redondeados pequeños */
 
     /* Sombra */
     --db-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -42,12 +43,16 @@
     /* Tamaños */
     --db-card-width: 320px; /* Ancho de la card */
     --db-card-height: 450px; /* Altura de la card */
-    --db-card-img-height: 80%; /* Altura de la imagen de Goku */
-    --db-card-img-width: 100%; /* Ancho de la imagen de Goku */
-    --db-img-background-height: 100%; /* Altura de la imagen de fondo */
-    --db-img-background-width: 100%; /* Ancho de la imagen de fondo */
+    --db-card-img-height: 80%; /* Altura de la imagen de Goku   NO USED  */
+    --db-card-img-width: 100%; /* Ancho de la imagen de Goku   NO USED  */
+    --db-img-background-height: 100%; /* Altura de la imagen de fondo NO USED */
+    --db-img-background-width: 100%; /* Ancho de la imagen de fondo  NO USED */
 
     /* Transiciones */
     --db-transition-fast: 0.3s ease;
     --db-transition-slow: 0.6s ease;
+
+    /* Elevaciones */
+    --db-elevation-md: 0 0 10px rgba(0, 0, 0, 0.1);
+
 }

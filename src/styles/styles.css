@@ -10,6 +10,7 @@ body{
     justify-content: space-between;
     padding: var(--db-spacing-s) var(--db-spacing-lg);
     background-color: var(--db-color-white);
+    align-items: center;
 }
 
 .page-nav__list{
@@ -19,17 +20,28 @@ body{
 
 .page-nav__item{
     text-decoration: none;
-    color: var(--db-color-black);
+    color: var(--db-color-secondary);
+    font-weight: 700;
 }
 
 .page-nav__item.page-nav__item--primary{
     background-color: var(--db-color-primary);
     padding: var(--db-spacing-s);
-    color: var(--db-color-black);
-    border-radius: var(--db-border-radius-small);
+    color: var(--db-color-white);
+    border-radius: var(--db-rounded-md);
 }
 
-.page-home_header{
+.home-title__container {
+    text-align: center;
+    margin: var(--db-spacing-lg) 0;
+}
+
+.home__main-img {
+    max-width: 100%;
+    margin-bottom: var(--db-spacing-lg);
+}
+
+.page__title {
     padding: var(--db-spacing-lg);
     display: flex;
     flex-direction: column;
@@ -38,101 +50,185 @@ body{
     font-size: var(--db-font-size-heading);
     color: var(--db-color-primary);
 }
-
-.page-home_img-header{
-    max-width: 100%;
-    margin-bottom: var(--db-spacing-lg);
-}
+  
 
 /* Card Container */
-.cards-container {
+
+.character-list__container {
+    display: grid;
+    gap: var(--db-spacing-xxl);
+    margin: var(--db-spacing-xxl);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    justify-items: center;
+}
+
+
+.character-card__container {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos dentro de la card se distribuyan en columna */
+    width: 280px;
+    min-height: 450px;
+    border-radius: var(--db-rounded-md);
+    box-shadow: var(--db-elevation-md);
+    background-color: var(--db-color-secondary);
+}
+
+/* Borde para cuando el personaje es saiyan */
+
+.character-card__container--saiyan {
+    border: 1px solid var(--db-color-primary);
+}
+  
+/* Imagen de fondo */
+
+.character-card__header {
+    background-image: url("../assets/img/bg_cards.webp");
+    border-top-left-radius: var(--db-rounded-md); /* Redondea solo la esquina superior izquierda */
+    border-top-right-radius: var(--db-rounded-md); /* Redondea solo la esquina superior derecha */
+    background-size: cover;
+    text-align: center;
+    height: 350px;
+    background-position: center;
+}
+
+
+
+/* Imagen del personaje */
+  
+.character-card__header img {
+    position: relative;
+    max-width: 100%;
+    top: -20px;
+    height: 110%;
+    transition: transform var(--db-transition-slow);
+    transform-origin: center;
+    transform: scale(1.05);
+}
+  
+/* Efecto de hover en la imagen */
+.character-card__header img:hover {
+    transform: scale(1.30); /* Amplía la imagen en hover */
+}
+
+
+/* Contenido de la card */
+.character-card__body {
+    color: var(--db-color-white);
+    padding: var(--db-spacing-md);
+    padding-top: var(--db-spacing-xl);
+    flex-grow: 1; /* Permite que el contenido del cuerpo ocupe el espacio disponible */
+}
+  
+.character-card__body > * {
+    margin-bottom: var(--db-spacing-md);
+}
+  
+.character-description__title {
+    font-size: var(--db-font-size-large);
+    font-weight: 900;
+}
+  
+.character-description__text--subheader {
+    color: var(--db-color-white);
+    font-size: var(--db-font-size-small);
+}
+
+.character-description__text--result {
+    color: var(--db-color-primary);
+    font-size: var(--db-font-size-base);
+    font-weight: 700;
+}
+
+.character-description__text--z-fighter {
+    color: red;
+}
+  
+
+
+
+/* Content detail */
+.character-detail__container{
+    background-color: var(--db-color-secondary);
+    box-shadow: var(--db-elevation-md);
+    border-radius: var(--db-rounded-md);
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
     padding: var(--db-spacing-lg);
+}
+
+.character-detail__header {
     text-align: center;
 }
 
-.card {
-    background-color: var(--db-color-secondary);
-    border-radius: var(--db-border-radius);
-    box-shadow: var(--db-box-shadow);
-    overflow: visible; /* Asegúrate de que el contenido que sobresale no sea recortado */
-    width: var(--db-card-width);
-    margin: 0 auto;
-    position: relative;
+.character-detail__img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--db-rounded-md);
 }
 
-/* Imagen de fondo */
-.card-img-container {
-    position: relative;
-    height: var(--db-img-background-height);
-    overflow: hidden;
-    background-position: center center;
-    border-top-left-radius: var(--db-border-radius); /* Redondear la esquina superior izquierda */
-    border-top-right-radius: var(--db-border-radius); /* Redondear la esquina superior derecha */
+.character-detail__body {
+    padding: var(--db-spacing-s);
+    color: var(--db-color-text);
 }
 
-.bg-card-img {
-    height: var(--db-img-background-height);
-    width: var(--db-img-background-width);
-    object-fit: cover;  /* Asegura que la imagen cubra el contenedor sin distorsionarse */
-}
-
-/* Imagen del personaje */
-.card-img {
-    position: absolute;
-    top: -30px; /* Hace que la imagen sobresalga */
-    transform: translateX(-50%);
-    height: var(--db-card-img-height);
-    object-fit: cover;
-    z-index: 1;
-    transition: transform var(--db-transition-fast);
-}
-
-
-/* Efecto de hover en la imagen */
-.card:hover .card-img {
-    transform: translateX(-50%) scale(1.1); /* Amplía la imagen en hover */
-}
-
-/* Contenido de la card */
-.card-content {
-    padding: var(--db-spacing-md);
-    position: relative;
-    z-index: 2;
-}
-
-.card-title {
+.character-description__title {
     font-size: var(--db-font-size-heading);
-    margin: var(--db-spacing-s) 0;
     color: var(--db-color-primary);
+    text-align: center;
 }
 
-.card-subtitle {
-    font-size: var(--db-font-size-base);
-    margin-bottom: var(--db-spacing-md);
+.character-description__text {
+    font-size: var(--db-font-size-medium);
     color: var(--db-color-text);
 }
 
-.card-info {
-    display: flex;
-    flex-direction: column;
-    gap: var(--db-spacing-md);
-}
-
-.card-info-item {
-    display: flex;
-    justify-content: space-between;
-    font-size: var(--db-font-size-base);
-    color: var(--db-color-text);
-}
-
-.info-label {
+.character-description__text--subheader {
     font-weight: bold;
-    color: var(--db-color-text);
+    margin-top: var(--db-spacing-s);
 }
 
-.info-value {
+.character-description__text--result {
+    margin-top: var(--db-spacing-xs);
     color: var(--db-color-primary);
 }
+
+.character-detail-card__origin-planet, 
+.character-detail-card__transformations {
+    margin-top: var(--db-spacing-lg);
+}
+
+.character-detail-card__origin-planet-img,
+.character-detail-card__transformation-img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    margin-top: var(--db-spacing-md);
+}
+
+.transformation-item {
+    margin-bottom: var(--db-spacing-lg);
+}
+
+.character-description__subheader {
+    font-size: var(--db-font-size-large);
+    margin-top: var(--db-spacing-md);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Footer */
 .page-footer {

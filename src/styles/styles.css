@@ -1,222 +1,98 @@
 /* Página completa */
-body{
-    background-color: var(--db-color-background);
-    font-family: var(--db-font-family);
-    color: var(--db-color-text);
+body {
+    font-family: var(--pokedex-font-family);
+    margin: 0;
+    padding: 0;
+    background-color: var(--pokedex-color-background);
 }
-
-.page__header-container{
-    display: flex;
-    justify-content: space-between;
-    padding: var(--db-spacing-s) var(--db-spacing-lg);
-    background-color: var(--db-color-white);
-    align-items: center;
-}
-
-.page-nav__list{
-    display: flex;
-    gap: var(--db-spacing-md);
-}
-
-.page-nav__item{
-    text-decoration: none;
-    color: var(--db-color-secondary);
-    font-weight: 700;
-}
-
-.page-nav__item.page-nav__item--primary{
-    background-color: var(--db-color-primary);
-    padding: var(--db-spacing-s);
-    color: var(--db-color-white);
-    border-radius: var(--db-rounded-md);
-}
-
-.home-title__container {
-    text-align: center;
-    margin: var(--db-spacing-lg) 0;
-}
-
-.home__main-img {
-    max-width: 100%;
-    margin-bottom: var(--db-spacing-lg);
-}
-
-.page__title {
-    padding: var(--db-spacing-lg);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    font-size: var(--db-font-size-heading);
-    color: var(--db-color-primary);
-}
-  
-
-/* Card Container */
-
-.character-list__container {
-    display: grid;
-    gap: var(--db-spacing-xxl);
-    margin: var(--db-spacing-xxl);
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    justify-items: center;
-}
-
-
-.character-card__container {
-    text-decoration: none;
-    display: flex;
-    flex-direction: column; /* Asegura que los elementos dentro de la card se distribuyan en columna */
-    width: 280px;
-    min-height: 450px;
-    border-radius: var(--db-rounded-md);
-    box-shadow: var(--db-elevation-md);
-    background-color: var(--db-color-secondary);
-}
-
-/* Borde para cuando el personaje es saiyan */
-
-.character-card__container--saiyan {
-    border: 1px solid var(--db-color-primary);
-}
-  
-/* Imagen de fondo */
-
-.character-card__header {
-    background-image: url("../assets/img/bg_cards.webp");
-    border-top-left-radius: var(--db-rounded-md); /* Redondea solo la esquina superior izquierda */
-    border-top-right-radius: var(--db-rounded-md); /* Redondea solo la esquina superior derecha */
-    background-size: cover;
-    text-align: center;
-    height: 350px;
-    background-position: center;
-}
-
-
-
-/* Imagen del personaje */
-  
-.character-card__header img {
-    position: relative;
-    max-width: 100%;
-    top: -20px;
-    height: 110%;
-    transition: transform var(--db-transition-slow);
-    transform-origin: center;
-    transform: scale(1.05);
-}
-  
-/* Efecto de hover en la imagen */
-.character-card__header img:hover {
-    transform: scale(1.30); /* Amplía la imagen en hover */
-}
-
-
-/* Contenido de la card */
-.character-card__body {
-    color: var(--db-color-white);
-    padding: var(--db-spacing-md);
-    padding-top: var(--db-spacing-xl);
-    flex-grow: 1; /* Permite que el contenido del cuerpo ocupe el espacio disponible */
-}
-  
-.character-card__body > * {
-    margin-bottom: var(--db-spacing-md);
-}
-  
-.character-description__title {
-    font-size: var(--db-font-size-large);
-    font-weight: 900;
-}
-  
-.character-description__text--subheader {
-    color: var(--db-color-white);
-    font-size: var(--db-font-size-small);
-}
-
-.character-description__text--result {
-    color: var(--db-color-primary);
-    font-size: var(--db-font-size-base);
-    font-weight: 700;
-}
-
-.character-description__text--z-fighter {
-    color: red;
-}
-  
-
-
-
-/* Content detail */
-.character-detail__container{
-    background-color: var(--db-color-secondary);
-    box-shadow: var(--db-elevation-md);
-    border-radius: var(--db-rounded-md);
-    width: 100%;
-    max-width: 800px;
+.pokedex {
+    max-width: 400px;
     margin: 0 auto;
-    padding: var(--db-spacing-lg);
+    border: var(--pokedex-border-width) solid var(--pokedex-color-primary);
+    border-radius: var(--pokedex-border-radius);
+    background-color: var(--pokedex-color-white);
 }
 
-.character-detail__header {
-    text-align: center;
+/* Header */
+header {
+    background-color: var(--pokedex-color-primary);
+    color: var(--pokedex-color-white);
+    padding: var(--pokedex-spacing-medium);
+    display: flex;
+    align-items: center;
+    gap: var(--pokedex-spacing-small);
+    border-radius: var(--pokedex-border-radius) var(--pokedex-border-radius) 0 0;
 }
-
-.character-detail__img {
-    width: 100%;
-    height: auto;
-    border-radius: var(--db-rounded-md);
-}
-
-.character-detail__body {
-    padding: var(--db-spacing-s);
-    color: var(--db-color-text);
-}
-
-.character-description__title {
-    font-size: var(--db-font-size-heading);
-    color: var(--db-color-primary);
-    text-align: center;
-}
-
-.character-description__text {
-    font-size: var(--db-font-size-medium);
-    color: var(--db-color-text);
-}
-
-.character-description__text--subheader {
+header h1 {
+    font-size: var(--pokedex-font-size-headline);
     font-weight: bold;
-    margin-top: var(--db-spacing-s);
+    margin: 0;
+}
+header .company__logo {
+    width: 50px;
+    height: 50px;
 }
 
-.character-description__text--result {
-    margin-top: var(--db-spacing-xs);
-    color: var(--db-color-primary);
+/* Search */
+section {
+    padding: var(--pokedex-spacing-small);
+}
+.search-bar {
+    display: flex;
+    gap: var(--pokedex-spacing-small);
+}
+.search-bar input {
+    flex-grow: 1;
+    padding: var(--pokedex-spacing-small);
+    border: 1px solid var(--pokedex-color-medium-shade);
+    border-radius: 5px;
+    background: url('assets/icons/search.webp') no-repeat left 10px center;
+    background-size: 16px;
+    padding-left: 35px;
+}
+.search-bar button {
+    padding: var(--pokedex-spacing-small);
+    border: none;
+    background-color: var(--pokedex-color-primary);
+    color: var(--pokedex-color-white);
+    border-radius: 5px;
+    cursor: pointer;
+}
+.search-bar button img {
+    width: 16px;
+    height: 16px;
 }
 
-.character-detail-card__origin-planet, 
-.character-detail-card__transformations {
-    margin-top: var(--db-spacing-lg);
+/* Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--pokedex-spacing-small);
 }
 
-.character-detail-card__origin-planet-img,
-.character-detail-card__transformation-img {
-    width: 100%;
-    max-width: 200px;
+/* Article */
+article {
+    text-align: center;
+    border: 1px solid var(--pokedex-color-light-shade);
+    border-radius: var(--pokedex-border-radius);
+    padding: var(--pokedex-spacing-small);
+    background-color: var(--pokedex-color-white);
+    box-shadow: var(--pokedex-box-shadow-small);
+}
+article img {
+    width: 80px;
     height: auto;
-    margin-top: var(--db-spacing-md);
 }
-
-.transformation-item {
-    margin-bottom: var(--db-spacing-lg);
+article h2 {
+    margin-top: var(--pokedex-spacing-small);
+    font-weight: bold;
+    font-size: var(--pokedex-font-size-body1);
 }
-
-.character-description__subheader {
-    font-size: var(--db-font-size-large);
-    margin-top: var(--db-spacing-md);
+article p {
+    color: var(--pokedex-color-medium-shade);
+    font-size: var(--pokedex-font-size-body2);
+    margin: 5px 0 0;
 }
-
-
 
 
 

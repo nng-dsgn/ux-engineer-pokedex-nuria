@@ -1,115 +1,130 @@
 /* Página completa */
 body {
-    font-family: var(--pokedex-font-family);
     margin: 0;
     padding: 0;
-    background-color: var(--pokedex-color-background);
+    font-family: var(--pkd-font-family);
+    background-color: var(--pkd-color-background);
+    color: var(--pkd-color-dark);
 }
+
 .pokedex {
-    max-width: 400px;
-    margin: 0 auto;
-    border: var(--pokedex-border-width) solid var(--pokedex-color-primary);
-    border-radius: var(--pokedex-border-radius);
-    background-color: var(--pokedex-color-white);
+    width: 360px;
+    height: 640px;
+    border: var(--pkd-border-width) solid var(--pkd-color-primary);
+    background-color: var(--pkd-color-secondary);
 }
 
 /* Header */
-header {
-    background-color: var(--pokedex-color-primary);
-    color: var(--pokedex-color-white);
-    padding: var(--pokedex-spacing-medium);
+.header-container {
+    padding: var(--pkd-spacing-m);
+    background: var(--pkd-color-primary);
+    display: flex;
+    flex-direction: column;
+    gap: var(--pkd-spacing-s);
+}
+.header-logo-title {
     display: flex;
     align-items: center;
-    gap: var(--pokedex-spacing-small);
-    border-radius: var(--pokedex-border-radius) var(--pokedex-border-radius) 0 0;
+    gap: var(--pkd-spacing-l);
 }
-header h1 {
-    font-size: var(--pokedex-font-size-headline);
-    font-weight: bold;
-    margin: 0;
+.header-logo {
+    width: 24px;
+    height: 24px;
 }
-header .company__logo {
-    width: 50px;
-    height: 50px;
+.header-title {
+    color: var(--pkd-color-secondary);
+    font-size: var(--pkd-font-size-headline);
+    font-weight: 700;
 }
 
 /* Search */
-section {
-    padding: var(--pokedex-spacing-small);
-}
-.search-bar {
+.header-search {
     display: flex;
-    gap: var(--pokedex-spacing-small);
+    gap: var(--pkd-spacing-s);
+    align-items: center;
 }
-.search-bar input {
-    flex-grow: 1;
-    padding: var(--pokedex-spacing-small);
-    border: 1px solid var(--pokedex-color-medium-shade);
-    border-radius: 5px;
-    background: url('assets/icons/search.webp') no-repeat left 10px center;
-    background-size: 16px;
-    padding-left: 35px;
+.search-container {
+    display: flex;
+    width: 100%; 
+    align-items: center;
+    gap: var(--pkd-spacing-s);
+    background: var(--pkd-color-secondary);
+    padding: var(--pkd-spacing-s) var(--pkd-spacing-m); 
+    border-radius: var(--pkd-border-radius-m);
+    box-shadow: var(--pkd-shadow-inset);
 }
-.search-bar button {
-    padding: var(--pokedex-spacing-small);
-    border: none;
-    background-color: var(--pokedex-color-primary);
-    color: var(--pokedex-color-white);
-    border-radius: 5px;
-    cursor: pointer;
-}
-.search-bar button img {
+.search-icon {
     width: 16px;
     height: 16px;
+    flex-shrink: 0;
+    filter: brightness(0) saturate(100%) invert(12%) sepia(87%) saturate(3868%) hue-rotate(343deg) brightness(94%) contrast(107%);
+}
+.search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: var(--pkd-font-size-body3);
+    font-family: var(--pkd-font-family);
+    font-weight: 400;
+    line-height: 16px;
+    font-style: normal;
+    color: var(--pkd-color-medium);
+    background: transparent;
+    padding: 0;
+}
+.search-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--pkd-spacing-s);
+    background: var(--pkd-color-secondary);
+    border: none;
+    box-shadow: var(--pkd-shadow-inset);
+    border-radius: var(--pkd-border-radius-m);
+    cursor: pointer;
+}
+.search-button img {
+    width: 16px;
+    height: 16px;
+    filter: brightness(0) saturate(100%) invert(12%) sepia(87%) saturate(3868%) hue-rotate(343deg) brightness(94%) contrast(107%);
 }
 
 /* Grid */
 .grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--pokedex-spacing-small);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--pkd-spacing-s);
+    padding: var(--pkd-spacing-m);
 }
-
-/* Article */
-article {
+.card {
     text-align: center;
-    border: 1px solid var(--pokedex-color-light-shade);
-    border-radius: var(--pokedex-border-radius);
-    padding: var(--pokedex-spacing-small);
-    background-color: var(--pokedex-color-white);
-    box-shadow: var(--pokedex-box-shadow-small);
+    width: 104px;
+    height: 108px;
+    border: 1px solid var(--pkd-color-light);
+    border-radius: var(--pkd-border-radius-s);
+    padding: var(--pkd-spacing-s);
+    background: var(--pkd-color-secondary);
+    box-shadow: var(--pkd-shadow-small);
 }
-article img {
+.card img {
     width: 80px;
     height: auto;
 }
-article h2 {
-    margin-top: var(--pokedex-spacing-small);
+.card h2 {
+    margin-top: var(--pkd-spacing-s);
+    font-size: var(--pkd-font-size-body1);
     font-weight: bold;
-    font-size: var(--pokedex-font-size-body1);
 }
-article p {
-    color: var(--pokedex-color-medium-shade);
-    font-size: var(--pokedex-font-size-body2);
-    margin: 5px 0 0;
+.card p {
+    margin: 0;
+    color: var(--pkd-color-medium);
+    font-size: var(--pkd-font-size-caption);
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* Footer */
 .page-footer {
-    background-color: var(--db-color-secondary);
-    padding: var(--db-spacing-lg);
-    color: var(--db-color-text);
+    color: var(--pkd-color-primary);
+    padding: var(--pkd-spacing-l);
+    font-size: var(--pkd-font-size-caption);
     text-align: center;
 }

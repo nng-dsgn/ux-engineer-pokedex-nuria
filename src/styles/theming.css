@@ -1,58 +1,54 @@
 /** VARIABLES GENERALES **/
 :root {
     /* Colores */
-    --db-color-primary: #fbc02d;  /* Color principal (amarillo Dragon Ball) */
-    --db-color-secondary: #3c3e44; /* Color secundario (gris oscuro) */
-    --db-color-background: #272B33; /* Fondo de la página */
-    --db-color-accent: #f9a825; /* Color de acento (amarillo más brillante) */
-    --db-color-text: #fff;  /* Color del texto */
-    --db-color-white: #ffffff; /* Blanco */
-    --db-color-black: #000000; /* Negro */
-    --db-color-border: #333333; /* Color para bordes y sombras */
+    --pokedex-color-primary: #DC0A2D;  /* Color principal */
+    --pokedex-color-bug: #A7B723;
+    --pokedex-color-dark: #75574C;
+    --pokedex-color-dragon: #7037FF;
+    --pokedex-color-electric: #F9CF30;
+    --pokedex-color-fairy: #E69EAC;
+    --pokedex-color-fighting: #C12239;
+    --pokedex-color-fire: #F57D31;
+    --pokedex-color-flying: #A891EC;
+    --pokedex-color-ghost: #70559B;
+    --pokedex-color-normal: #AAA67F;
+    --pokedex-color-grass: #74CB48;
+    --pokedex-color-ground: #DEC16B;
+    --pokedex-color-ice: #9AD6DF;
+    --pokedex-color-poison: #A43E9E;
+    --pokedex-color-psychic: #FB5584;
+    --pokedex-color-rock: #B69E31;
+    --pokedex-color-steel: #B7B9D0;
+    --pokedex-color-water: #6493EB;
 
-
-    /* Colores de los estados */
-    --db-color-hover: #ffeb3b; /* Color para hover */
-    --db-color-active: #f57c00; /* Color cuando el elemento está activo */
-    --db-color-disabled: #555; /* Color para elementos deshabilitados */
+    --pokedex-color-dark-shade: #212121; /* Gris oscuro */
+    --pokedex-color-medium-shade: #666666; /* Gris medio */
+    --pokedex-color-light-shade: #E0E0E0; /* Gris claro */
+    --pokedex-color-background: #EFEFEF; /* Fondo */
+    --pokedex-color-white: #FFFFFF; /* Blanco */
 
     /* Tipografía */
-    --db-font-family: 'Arial', 'Helvetica', sans-serif;
-    --db-font-family-heading: 'Roboto', sans-serif;
-    --db-font-size-small: 0.875rem; /* Fuente pequeña */
-    --db-font-size-base: 1rem; /* Fuente base */
-    --db-font-size-large: 1.25rem; /* Fuente grande */
-    --db-font-size-heading: 3rem; /* Fuente de los títulos */
-    
+    --pokedex-font-family: 'Poppins', sans-serif;
+    --pokedex-font-size-headline: 24px; /* Headline */
+    --pokedex-font-size-subtitle3: 10px; /* Subtitle 3 */
+    --pokedex-font-size-subtitle1: 14px; /* Subtitle 1 */
+    --pokedex-font-size-subtitle2: 12px; /* Subtitle 2 */
+    --pokedex-font-size-body3: 10px; /* Body 3 */
+    --pokedex-font-size-body1: 14px; /* Body 1 */
+    --pokedex-font-size-body2: 12px; /* Body 2 */
+    --pokedex-font-size-caption: 8px; /* Caption */
+
     /* Espaciado (márgenes, rellenos) */
-    --db-spacing-xs: 4px;
-    --db-spacing-s: 8px;
-    --db-spacing-md: 12px;
-    --db-spacing-lg: 16px;
-    --db-spacing-xl: 24px;
-    --db-spacing-xxl: 50px;
-    
+    --pokedex-spacing-small: 10px;
+    --pokedex-spacing-medium: 15px;
+    --pokedex-spacing-large: 24px;
+
     /* Bordes y redondeos */
-    --db-rounded-md: 8px;  /* Bordes redondeados generales */
-    --db-rounded-xs: 5px; /* Bordes redondeados pequeños */
+    --pokedex-border-radius: 10px;  /* Bordes redondeados generales */
+    --pokedex-border-width: 2px; /* Ancho de los bordes */
 
-    /* Sombra */
-    --db-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    --db-box-shadow-hover: 0 10px 20px rgba(0, 0, 0, 0.2);
-
-    /* Tamaños */
-    --db-card-width: 320px; /* Ancho de la card */
-    --db-card-height: 450px; /* Altura de la card */
-    --db-card-img-height: 80%; /* Altura de la imagen de Goku   NO USED  */
-    --db-card-img-width: 100%; /* Ancho de la imagen de Goku   NO USED  */
-    --db-img-background-height: 100%; /* Altura de la imagen de fondo NO USED */
-    --db-img-background-width: 100%; /* Ancho de la imagen de fondo  NO USED */
-
-    /* Transiciones */
-    --db-transition-fast: 0.3s ease;
-    --db-transition-slow: 0.6s ease;
-
-    /* Elevaciones */
-    --db-elevation-md: 0 0 10px rgba(0, 0, 0, 0.1);
-
+    /* Sombras */
+    --pokedex-box-shadow-small: 0 1px 3px 1px rgba(0, 0, 0, 0.2);
+    --pokedex-box-shadow-large: 0 3px 12px 3px rgba(0, 0, 0, 0.2);
+    --pokedex-inner-shadow: inset 0 1px 3px 1px rgba(0, 0, 0, 0.25);
 }

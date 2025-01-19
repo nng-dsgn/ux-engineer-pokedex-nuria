@@ -29,8 +29,11 @@ async function getPokemonDetailFromAPI(pokemonId) {
     const characterDetail = document.querySelector(".character-detail__container");
   
     // Establecer nombre y ID del personaje en el header
-    document.querySelector(".character-name").textContent = pokemon.name;
-    document.querySelector(".character-id").textContent = `ID: ${pokemon.id}`;
+    const characterNameElement = document.querySelector(".character-name");
+    const characterIdElement = document.querySelector(".character-id");
+
+    characterNameElement.textContent = pokemon.name || "Nombre no disponible";
+    characterIdElement.textContent = `ID: ${pokemon.id || "Desconocido"}`;
   
     // Estructura de la vista de detalles en HTML inline
     characterDetail.innerHTML = `

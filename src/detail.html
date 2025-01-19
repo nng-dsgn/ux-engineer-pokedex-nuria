@@ -14,11 +14,11 @@
     <main class="pokedex">
         <!-- Header -->
         <header class="page__header-container">
-            <button class="back-button" onclick="window.history.back()">
-                <img src="assets/icons/arrow_back.webp" alt="Back">
+            <button class="back-button" onclick="window.history.back()" aria-label="Go back">
+                <img src="assets/icons/arrow_back.webp" alt="Back" />
             </button>
-            <h1 class="character-name"></h1>
-            <h2 class="character-id"></h2>
+            <h1 class="character-name" aria-live="polite"></h1>
+            <h2 class="character-id" aria-live="polite"></h2>
         </header>
 
         <section class="character-detail__container">

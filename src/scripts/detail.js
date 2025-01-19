@@ -37,51 +37,64 @@ async function getPokemonDetailFromAPI(pokemonId) {
   
     // Estructura de la vista de detalles en HTML inline
     characterDetail.innerHTML = `
-      <header class="character-detail__header">
-        <img alt="Personaje ${pokemon.name}" src="${pokemon.sprites.other["official-artwork"].front_default}" class="character-detail__img" />
-      </header>
+<!-- <header class="page__header-container">
+       <button class="back-button" onclick="window.history.back()" aria-label="Go back">
+          <img src="assets/icons/arrow_back.webp" alt="Back" />
+        </button>
+        <h1 class="character-name" aria-live="polite"></h1>
+        <h2 class="character-id" aria-live="polite"></h2>
+      </header>-->
+
+       <header class="character-detail__header">
+         <img alt="Personaje ${pokemon.name}" src="${pokemon.sprites.other["official-artwork"].front_default}" class="character-detail__img" />
+       </header>
+
+      <section class="info-pokemon">
+        <section class="character-detail__type">
+            <div class="type-chip">${pokemon.types.map(type => type.type.name).join(", ")}</div>
+            <div class="type-chip">${pokemon.position}</div>
+        </section>
+        <section class="character-detail__about">
+           <h3 class="character-description__subheader">About</h3>
+             <div class="character-detail__info">
+                <div class="info-item">
+                  <section class="info-lisitem">
+                    <img src="assets/icons/weight.webp" alt="Weight Icon" />
+                   <p class="info-text">${pokemon.weight}</p>
+                  </section>
+                 <p class="info-caption">Weight</p>
+               </div>
+                <div class="info-item">
+                 <section class="info-lisitem">
+                    <img src="assets/icons/straighten.webp" alt="Height Icon" />
+                   <p class="info-text">${pokemon.height}</p>
+                 </section>
+                  <p class="info-caption">Height</p>
+               </div>
+               <div class="info-item">
+                  <p class="info-text">${pokemon.abilities.map(ability => ability.ability.name).join(", ")}</p>
+                  <p class="info-caption">Abilities</p>
+                </div>
+             </div>
+       </section>
+      
   
-      <section class="character-detail__type">
-        <div class="type-chip">${pokemon.types.map(type => type.type.name).join(", ")}</div>
-        <div class="type-chip">${pokemon.position}</div>
-      </section>
-  
-      <section class="character-detail__about">
-        <h3 class="character-description__subheader">About</h3>
-        <div class="character-detail__info">
-          <div class="info-item">
-            <img src="assets/icons/weight-icon.png" alt="Weight Icon" />
-            <p class="info-text">${pokemon.weight}</p>
-            <p>Weight</p>
-          </div>
-          <div class="info-item">
-            <img src="assets/icons/height-icon.png" alt="Height Icon" />
-            <p class="info-text">${pokemon.height}</p>
-            <p>Height</p>
-          </div>
-          <div class="info-item">
-            <p class="info-text">${pokemon.abilities.map(ability => ability.ability.name).join(", ")}</p>
-            <p>Abilities</p>
-          </div>
-        </div>
-      </section>
-  
-      <section class="character-detail__moves">
-        <h3 class="character-description__subheader">Moves</h3>
-        <p>${pokemon.moves.map(move => move.move.name).join(", ")}</p>
-      </section>
-  
-      <section class="character-detail__base-stats">
-        <h3 class="character-description__subheader">Base Stats</h3>
-        ${pokemon.stats.map(stat => `
-          <div class="base-stat">
-            <p>${stat.stat.name.toUpperCase()}</p>
-            <div class="stat-bar">
-              <input type="range" value="${stat.base_stat}" max="100" disabled />
-              <span class="stat-score">${stat.base_stat}</span>
+        <section class="character-detail__moves">
+          <p>${pokemon.moves.map(move => move.move.name).join(", ")}</p>
+        </section>
+    
+        <section class="character-detail__base-stats">
+          <h3 class="character-description__subheader">Base Stats</h3>
+          ${pokemon.stats.map(stat => `
+            <div class="base-stat">
+              <p>${stat.stat.name.toUpperCase()}</p>
+              <div class="stat-bar">
+                <input type="range" value="${stat.base_stat}" max="100" disabled />
+                <span class="stat-score">${stat.base_stat}</span>
+              </div>
             </div>
-          </div>
-        `).join("")}
+          `).join("")}
+        </section>
       </section>
     `;
   }

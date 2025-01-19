@@ -147,7 +147,7 @@ body {
     border-radius: var(--pkd-border-radius-s);
     box-shadow: var(--pkd-shadow-small);
     overflow: hidden;
-    background: var(--pkd-color-secondary); 
+    background: var(--pkd-color-white); 
     position: relative;
 }
 
@@ -157,7 +157,7 @@ body {
     bottom: 0; /* Se coloca en la parte inferior de la tarjeta */
     width: 100%; /* Ocupa todo el ancho */
     height: 40%; /* Cubre la mitad inferior de la tarjeta */
-    background-color: var(--pkd-color-light);
+    background-color: var(--pkd-color-background);
     padding: var(--pkd-spacing-xs);
     border-radius: var(--pkd-border-radius-xs);
     display: flex;
@@ -207,6 +207,9 @@ body {
 
 /* DETAILS */
 
+.character-detail__container{
+    height: 100%;
+}
 
 /* Header */
 .page__header-container {
@@ -251,18 +254,24 @@ body {
 
 
 /* Estilo para los contenedores y secciones adicionales */
+
+/* imagen */
+
 .character-detail__header {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 112px;
+    background-color: var(--pkd-color-primary);
 }
 
 .character-detail__img {
-    width: 100%;
-    max-width: 250px;
-    height: auto;
-    border-radius: var(--pkd-border-radius-m);
-    margin: 0 auto;
-    display: block;
+    width: 200px;
+    height: 200px;
+    align-self: stretch;
 }
+
+/* chips */
 
 .character-detail__type {
     display: flex;
@@ -283,29 +292,83 @@ body {
 .character-description__subheader {
     font-size: var(--pkd-font-size-subtitle1);
     color: var(--pkd-color-primary);
-    margin-bottom: var(--pkd-spacing-s);
 }
 
 .character-detail__info {
     display: flex;
-    gap: var(--pkd-spacing-m);
     justify-content: center;
+    align-items: center;
+    gap: var(--pkd-spacing-s);
+    align-self: stretch;
+}
+
+/* About */
+.character-detail__about{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.info-pokemon{
+    display: flex;
+ /* height: 412px;*/
+    padding: 56px 20px 20px 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--pkd-spacing-l);
+    border-radius: var(--pkd-border-radius-s);
+    background-color: var(--pkd-color-white);
+    align-self: stretch;
 }
 
 .info-item {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-top: var(--pkd-spacing-s);
+    padding-bottom: var(--pkd-spacing-s);
+    width: 100%;
 }
 
+.info-lisitem{
+    display: flex ;
+    flex-direction: row;
+}
 .info-item img {
-    width: 40px;
-    height: 40px;
+    width: 16px;
+    height: 16px;
 }
 
 .info-text {
-    font-size: var(--pkd-font-size-body1);
+    font-size: var(--pkd-font-size-body3);
     color: var(--pkd-color-dark);
     margin-top: var(--pkd-spacing-xs);
 }
+
+.info-caption{
+    font-size: var(--pkd-font-size-caption);
+}
+
+/* Moves */
+.character-detail__moves{
+    padding: var(--pkd-spacing-xs);
+    display: -webkit-box; /* Habilita el comportamiento de caja flexible */
+    -webkit-line-clamp: 2; /* Limita el texto a 2 líneas */
+    -webkit-box-orient: vertical; /* Orienta las cajas en dirección vertical */
+    overflow: hidden; /* Oculta el contenido que excede las líneas */
+    text-overflow: ellipsis; /* Agrega puntos suspensivos al final del texto truncado */
+    width: 100%;
+
+}
+
+.character-detail__base-stats{
+    padding: var(--pkd-spacing-xs);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
 
 /* Base Stats */
 .base-stat {

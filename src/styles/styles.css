@@ -90,6 +90,42 @@ body {
     filter: brightness(0) saturate(100%) invert(12%) sepia(87%) saturate(3868%) hue-rotate(343deg) brightness(94%) contrast(107%);
 }
 
+
+/* Dropdown */
+.dropdown-container {
+    position: relative;
+}
+.dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--pkd-color-secondary);
+    border: 1px solid var(--pkd-color-light);
+    border-radius: var(--pkd-border-radius-s);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 150px;
+    box-shadow: var(--pkd-shadow-small);
+    z-index: 10;
+}
+.dropdown li {
+    padding: var(--pkd-spacing-s);
+    cursor: pointer;
+    font-size: var(--pkd-font-size-body3);
+    color: var(--pkd-color-dark);
+    text-align: left;
+}
+.dropdown li:hover {
+    background-color: var(--pkd-color-primary);
+    color: var(--pkd-color-secondary);
+}
+.hidden {
+    display: none;
+}
+
+
+
 /* Grid */
 .grid {
     display: flex;
@@ -105,7 +141,6 @@ body {
 .card {
     display: flex; /* Para usar flexbox */
     flex-direction: column; /* Para alinear los elementos de arriba a abajo */
-    /* justify-content: space-between; /* Espacio entre el logo, título y texto */
     width: 104px;
     height: 108px;
     border: 1px solid var(--pkd-color-light);
@@ -123,8 +158,11 @@ body {
     width: 100%; /* Ocupa todo el ancho */
     height: 40%; /* Cubre la mitad inferior de la tarjeta */
     background-color: var(--pkd-color-light); /
-    display: flex;
+    padding: var(--pkd-spacing-xs);
     border-radius: var(--pkd-border-radius-xs);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 }
 
 /* ID del Pokémon */
@@ -145,15 +183,16 @@ body {
     height: 72px;
     margin: 0 auto;
     z-index: 2;
+    position: relative;
+    display: flex;
+    justify-content: center;
 }
 
 
 /* Nombre del Pokémon */
 .card-content h2 {
-    padding-right: var(--pkd-spacing-s);
-    padding-top: var(--pkd-spacing-xl);
-    padding-left: var(--pkd-spacing-s);
-    padding-bottom: var(--pkd-spacing-xs) ;
+    display: flex;
+    justify-content: center;
     font-size: var(--pkd-font-size-body3);
     color: var(--pkd-color-dark);
     text-align: center;
@@ -162,6 +201,158 @@ body {
     white-space: nowrap; /* Asegura que el texto no se divida en varias líneas */
     margin: 0;
 }
+
+
+
+
+/* DETAILS */
+
+/* Contenedor principal de la página */
+.character-detail__container {
+    background-color: var(--pkd-color-secondary);
+    width: 80%;
+    max-width: 1200px;
+    padding: var(--pkd-spacing-xl);
+    border-radius: var(--pkd-border-radius-m);
+    box-shadow: var(--pkd-shadow-large);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Header de detalles */
+.character-detail__header {
+    margin-bottom: var(--pkd-spacing-l);
+}
+
+.character-detail__img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+}
+
+/* Nombre e ID del Pokémon */
+.character-detail__header h1,
+.character-detail__header .character-id {
+    font-size: var(--pkd-font-size-headline);
+    font-weight: bold;
+    color: var(--pkd-color-dark);
+    margin: var(--pkd-spacing-s) 0;
+}
+
+.character-name {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--pkd-color-primary);
+}
+
+/* Tipos del Pokémon */
+.character-detail__type {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--pkd-spacing-l);
+}
+
+.type-chip {
+    background-color: var(--pkd-color-primary);
+    color: var(--pkd-color-secondary);
+    padding: var(--pkd-spacing-m);
+    margin: 0 var(--pkd-spacing-s);
+    border-radius: var(--pkd-border-radius-s);
+    font-size: var(--pkd-font-size-subtitle2);
+    font-weight: 600;
+}
+
+/* Sección "About" */
+.character-detail__about {
+    width: 100%;
+    margin-top: var(--pkd-spacing-xl);
+}
+
+.character-description__subheader {
+    font-size: var(--pkd-font-size-headline);
+    font-weight: 600;
+    margin-bottom: var(--pkd-spacing-m);
+    color: var(--pkd-color-dark);
+}
+
+.character-detail__info {
+    display: flex;
+    justify-content: space-around;
+    margin-top: var(--pkd-spacing-l);
+}
+
+.info-item {
+    text-align: center;
+    width: 120px;
+}
+
+.info-item img {
+    width: 40px;
+    height: 40px;
+}
+
+.info-text {
+    font-size: var(--pkd-font-size-body1);
+    font-weight: bold;
+    color: var(--pkd-color-primary);
+}
+
+/* Sección de movimientos */
+.character-detail__moves {
+    width: 100%;
+    margin-top: var(--pkd-spacing-xl);
+}
+
+.character-detail__moves p {
+    font-size: var(--pkd-font-size-body1);
+    color: var(--pkd-color-dark);
+    font-weight: 400;
+}
+
+/* Sección de estadísticas */
+.character-detail__base-stats {
+    width: 100%;
+    margin-top: var(--pkd-spacing-xl);
+}
+
+.base-stat {
+    margin-bottom: var(--pkd-spacing-m);
+}
+
+.base-stat p {
+    font-size: var(--pkd-font-size-subtitle1);
+    font-weight: bold;
+    color: var(--pkd-color-primary);
+}
+
+.stat-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: var(--pkd-spacing-s);
+}
+
+.stat-bar input[type="range"] {
+    width: 80%;
+    margin-right: var(--pkd-spacing-s);
+    background-color: var(--pkd-color-light);
+    border-radius: var(--pkd-border-radius-s);
+    height: 10px;
+}
+
+.stat-score {
+    font-size: var(--pkd-font-size-body1);
+    color: var(--pkd-color-dark);
+    font-weight: bold;
+}
+
+
+
+
+
+
 
 
 /* Footer */

@@ -1,62 +1,100 @@
-function renderDetailCharacterUI(character) {
-    // Crea la estructura de la view de detalle
-    const character = document.createElement("div");
-    character.classList.add("character-detail__container");
-
-    // Estructura de los detalles en HTML inline
-    characterCard.innerHTML = `
-        <header class="character-detail__header">
-            <img alt="Personaje ${character.name}" src="${character.image}" class="character-detail__img" />
-        </header>
-        <section class="character-detail__body">
-            <div class="character-detail__info">
-                <h2 class="character-description__title">${character.name}</h2>
-                <p class="character-description__text"><strong>ID:</strong> ${character.id}</p>
-                <p class="character-description__text"><strong>Ki:</strong> ${character.ki}</p>
-                <p class="character-description__text"><strong>Max KI:</strong> ${character.maxKi}</p>
-                <p class="character-description__text"><strong>Raza:</strong> ${character.race}</p>
-                <p class="character-description__text"><strong>Género:</strong> ${character.gender}</p>
-                <p class="character-description__text"><strong>Descripción:</strong> ${character.description}</p>
-                <p class="character-description__text"><strong>Afilación:</strong> ${character.affiliation}</p>
-                <p class="character-description__text"><strong>Eliminado En:</strong> ${character.deletedAt || "N/A"}</p>
-            </div>
-
-            <div class="character-detail-card__origin-planet">
-                <h3 class="character-description__subheader">Planeta de Origen</h3>
-                <p class="character-description__text"><strong>ID:</strong> ${character.originPlanet.id}</p>
-                <p class="character-description__text"><strong>Nombre:</strong> ${character.originPlanet.name}</p>
-                <p class="character-description__text"><strong>¿Destruido?</strong> ${character.originPlanet.isDestroyed ? "Sí" : "No"}</p>
-                <p class="character-description__text"><strong>Descripción:</strong> ${character.originPlanet.description}</p>
-                <img alt="Planeta de origen" src="${character.originPlanet.image}" class="character-detail-card__origin-planet-img" />
-                <p class="character-description__text"><strong>Eliminado En:</strong> ${character.originPlanet.deletedAt || "N/A"}</p>
-            </div>
-
-            <div class="character-detail-card__transformations">
-                <h3 class="character-description__subheader">Transformaciones</h3>
-                ${character.transformations.map(transformation => `
-                    <div class="transformation-item">
-                        <p class="character-description__text"><strong>Nombre:</strong> ${transformation.name}</p>
-                        <p class="character-description__text"><strong>ID:</strong> ${transformation.id}</p>
-                        <p class="character-description__text"><strong>KI:</strong> ${transformation.ki}</p>
-                        <img alt="Transformación ${transformation.name}" src="${transformation.image}" class="character-detail-card__transformation-img" />
-                        <p class="character-description__text"><strong>Eliminado En:</strong> ${transformation.deletedAt || "N/A"}</p>
-                    </div>
-                `).join('')}
-            </div>
-        </section>
-    `;
-
-
-    // Añadir el contenido al contenedor principal de la página de detalles
-    const containerElement = document.querySelector("main");
-    containerElement.appendChild(characterCard);
+// Función para obtener el ID del Pokémon desde la URL
+function getPokemonIdFromUrl() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const pokemonId = urlParams.get('pokemonId');
+    console.log("Pokemon ID:", pokemonId);  // Verifica que el ID esté siendo obtenido correctamente
+    return pokemonId;
 }
+
+
+async function getPokemonDetailFromAPI(pokemonId) {
+    const url = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;  // Asegúrate de que el endpoint sea correcto
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error('Failed to fetch Pokémon details');
+        }
+        const pokemonData = await response.json();
+        console.log("Pokemon Data:", pokemonData);  // Verifica que los datos se estén obteniendo correctamente
+        return pokemonData;
+    } catch (error) {
+        console.error("Error fetching Pokémon data:", error);
+        return null;
+    }
+}
+
   
-  async function initPage() {
-    const characterId = getCharacterIdFromUrl(); // paso 1: obtener el id de la URL
-    const dbCharacter = await getCharacterDetailFromAPIById(characterId); // paso 2: Buscar la información de detalle del personaje
-    renderDetailCharacterUI(dbCharacter); // pintar en la UI el personaje
-   
+  // Renderizar la UI de detalles del Pokémon
+  function renderDetailPokemonUI(pokemon) {
+    const characterDetail = document.querySelector(".character-detail__container");
+  
+    // Establecer nombre y ID del personaje en el header
+    document.querySelector(".character-name").textContent = pokemon.name;
+    document.querySelector(".character-id").textContent = `ID: ${pokemon.id}`;
+  
+    // Estructura de la vista de detalles en HTML inline
+    characterDetail.innerHTML = `
+      <header class="character-detail__header">
+        <img alt="Personaje ${pokemon.name}" src="${pokemon.sprites.other["official-artwork"].front_default}" class="character-detail__img" />
+      </header>
+  
+      <section class="character-detail__type">
+        <div class="type-chip">${pokemon.types.map(type => type.type.name).join(", ")}</div>
+        <div class="type-chip">${pokemon.position}</div>
+      </section>
+  
+      <section class="character-detail__about">
+        <h3 class="character-description__subheader">About</h3>
+        <div class="character-detail__info">
+          <div class="info-item">
+            <img src="assets/icons/weight-icon.png" alt="Weight Icon" />
+            <p class="info-text">${pokemon.weight}</p>
+            <p>Weight</p>
+          </div>
+          <div class="info-item">
+            <img src="assets/icons/height-icon.png" alt="Height Icon" />
+            <p class="info-text">${pokemon.height}</p>
+            <p>Height</p>
+          </div>
+          <div class="info-item">
+            <p class="info-text">${pokemon.abilities.map(ability => ability.ability.name).join(", ")}</p>
+            <p>Abilities</p>
+          </div>
+        </div>
+      </section>
+  
+      <section class="character-detail__moves">
+        <h3 class="character-description__subheader">Moves</h3>
+        <p>${pokemon.moves.map(move => move.move.name).join(", ")}</p>
+      </section>
+  
+      <section class="character-detail__base-stats">
+        <h3 class="character-description__subheader">Base Stats</h3>
+        ${pokemon.stats.map(stat => `
+          <div class="base-stat">
+            <p>${stat.stat.name.toUpperCase()}</p>
+            <div class="stat-bar">
+              <input type="range" value="${stat.base_stat}" max="100" disabled />
+              <span class="stat-score">${stat.base_stat}</span>
+            </div>
+          </div>
+        `).join("")}
+      </section>
+    `;
   }
   
-  initPage();
+  // Inicializar la página de detalles
+  async function initPage() {
+    const pokemonId = getPokemonIdFromUrl();  // Obtener el ID del Pokémon
+    console.log("Fetched Pokemon ID:", pokemonId);
+
+    const pokemon = await getPokemonDetailFromAPI(pokemonId);  // Obtener los detalles del Pokémon
+    if (pokemon) {
+        console.log("Pokemon details:", pokemon);  // Verifica que los detalles se hayan recibido correctamente
+        renderDetailPokemonUI(pokemon);  // Renderiza los detalles en la interfaz
+    } else {
+        console.error("No Pokémon data available.");
+    }
+}
+
+initPage();

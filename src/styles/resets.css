@@ -7,3 +7,9 @@
 ul{
     list-style: none;
 }
+
+a {
+    text-decoration: none; /* Elimina el subrayado */
+    color: inherit; /* Hereda el color del texto en lugar del predeterminado azul */
+    outline: none; /* Elimina el outline cuando el enlace tiene el foco */
+}

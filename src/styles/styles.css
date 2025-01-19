@@ -207,85 +207,93 @@ body {
 
 /* DETAILS */
 
-/* Contenedor principal de la página */
-.character-detail__container {
-    background-color: var(--pkd-color-secondary);
-    width: 80%;
-    max-width: 1200px;
-    padding: var(--pkd-spacing-xl);
-    border-radius: var(--pkd-border-radius-m);
-    box-shadow: var(--pkd-shadow-large);
+
+/* Header */
+.page__header-container {
+    padding: var(--pkd-spacing-m);
+    background: var(--pkd-color-primary);
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    text-align: center;
+    gap: var(--pkd-spacing-s);
 }
 
-/* Header de detalles */
-.character-detail__header {
-    margin-bottom: var(--pkd-spacing-l);
+.back-button {
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
 }
 
-.character-detail__img {
-    width: 200px;
-    height: 200px;
-    object-fit: contain;
-}
-
-/* Nombre e ID del Pokémon */
-.character-detail__header h1,
-.character-detail__header .character-id {
-    font-size: var(--pkd-font-size-headline);
-    font-weight: bold;
-    color: var(--pkd-color-dark);
-    margin: var(--pkd-spacing-s) 0;
+.back-button img {
+    width: 24px;
+    height: 24px;
+    filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(100deg) brightness(100%) contrast(100%) drop-shadow(0px 0px 0px var(--pkd-color-secondary));
 }
 
 .character-name {
-    font-size: 28px;
-    font-weight: bold;
-    color: var(--pkd-color-primary);
+    color: var(--pkd-color-secondary);
+    font-size: var(--pkd-font-size-headline);
+    font-weight: 700;
+    text-align: left;
+    flex: 1;
 }
 
-/* Tipos del Pokémon */
+.character-id {
+    color: var(--pkd-color-secondary);
+    font-size: var(--pkd-font-size-subtitle1);
+    text-align: right;
+    padding-left: var(--pkd-spacing-l);
+}
+
+
+
+
+
+/* Estilo para los contenedores y secciones adicionales */
+.character-detail__header {
+    text-align: center;
+}
+
+.character-detail__img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    border-radius: var(--pkd-border-radius-m);
+    margin: 0 auto;
+    display: block;
+}
+
 .character-detail__type {
     display: flex;
     justify-content: center;
-    margin-bottom: var(--pkd-spacing-l);
+    gap: var(--pkd-spacing-s);
 }
 
 .type-chip {
-    background-color: var(--pkd-color-primary);
-    color: var(--pkd-color-secondary);
-    padding: var(--pkd-spacing-m);
-    margin: 0 var(--pkd-spacing-s);
-    border-radius: var(--pkd-border-radius-s);
-    font-size: var(--pkd-font-size-subtitle2);
-    font-weight: 600;
-}
-
-/* Sección "About" */
-.character-detail__about {
-    width: 100%;
-    margin-top: var(--pkd-spacing-xl);
-}
-
-.character-description__subheader {
-    font-size: var(--pkd-font-size-headline);
-    font-weight: 600;
-    margin-bottom: var(--pkd-spacing-m);
+    background-color: var(--pkd-color-light);
     color: var(--pkd-color-dark);
+    font-size: var(--pkd-font-size-body2);
+    padding: var(--pkd-spacing-xs) var(--pkd-spacing-s);
+    border-radius: var(--pkd-border-radius-s);
+    box-shadow: var(--pkd-shadow-small);
+}
+
+/* About, Moves, and Stats Sections */
+.character-description__subheader {
+    font-size: var(--pkd-font-size-subtitle1);
+    color: var(--pkd-color-primary);
+    margin-bottom: var(--pkd-spacing-s);
 }
 
 .character-detail__info {
     display: flex;
-    justify-content: space-around;
-    margin-top: var(--pkd-spacing-l);
+    gap: var(--pkd-spacing-m);
+    justify-content: center;
 }
 
 .info-item {
     text-align: center;
-    width: 120px;
 }
 
 .info-item img {
@@ -295,57 +303,43 @@ body {
 
 .info-text {
     font-size: var(--pkd-font-size-body1);
-    font-weight: bold;
-    color: var(--pkd-color-primary);
-}
-
-/* Sección de movimientos */
-.character-detail__moves {
-    width: 100%;
-    margin-top: var(--pkd-spacing-xl);
-}
-
-.character-detail__moves p {
-    font-size: var(--pkd-font-size-body1);
     color: var(--pkd-color-dark);
-    font-weight: 400;
+    margin-top: var(--pkd-spacing-xs);
 }
 
-/* Sección de estadísticas */
-.character-detail__base-stats {
-    width: 100%;
-    margin-top: var(--pkd-spacing-xl);
-}
-
+/* Base Stats */
 .base-stat {
-    margin-bottom: var(--pkd-spacing-m);
-}
-
-.base-stat p {
-    font-size: var(--pkd-font-size-subtitle1);
-    font-weight: bold;
-    color: var(--pkd-color-primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--pkd-spacing-s);
 }
 
 .stat-bar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: var(--pkd-spacing-s);
+    flex: 1;
+    height: 8px;
+    background: var(--pkd-color-light);
+    border-radius: var(--pkd-border-radius-xs);
+    overflow: hidden;
+    position: relative;
 }
 
-.stat-bar input[type="range"] {
-    width: 80%;
-    margin-right: var(--pkd-spacing-s);
-    background-color: var(--pkd-color-light);
-    border-radius: var(--pkd-border-radius-s);
-    height: 10px;
+.stat-bar input {
+    width: 100%;
+    height: 100%;
+    background-color: var(--pkd-color-primary);
+    border: none;
+    border-radius: var(--pkd-border-radius-xs);
+    opacity: 0.5;
 }
 
 .stat-score {
-    font-size: var(--pkd-font-size-body1);
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: var(--pkd-font-size-body2);
     color: var(--pkd-color-dark);
-    font-weight: bold;
 }
 
 

@@ -11,20 +11,24 @@
     <link rel="icon" href="assets/icons/favicon-96x96.png" />
 </head>
 <body>
-    <header class="page__header-container">
-        <button class="back-button" onclick="window.history.back()">Back</button>
-        <h1 class="character-name"></h1>
-        <h2 class="character-id"></h2>
-    </header>
+    <main class="pokedex">
+        <!-- Header -->
+        <header class="page__header-container">
+            <button class="back-button" onclick="window.history.back()">
+                <img src="assets/icons/arrow_back.webp" alt="Back">
+            </button>
+            <h1 class="character-name"></h1>
+            <h2 class="character-id"></h2>
+        </header>
 
-    <main>
-        <div class="character-detail__container">
+        <section class="character-detail__container">
             <!-- Aquí se insertará la información del personaje -->
-        </div>
+        </section>
     </main>
 
+    <!-- Footer -->
     <footer class="page-footer">
-        <p> 2024 Dragon Ball API. All rights reserved.</p>
+        <p> 2025 Pokedex API. All rights reserved.</p>
     </footer>
 
     <script src="scripts/data.js"></script>

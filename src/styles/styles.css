@@ -12,6 +12,7 @@ body {
     height: 640px;
     border: var(--pkd-border-width) solid var(--pkd-color-primary);
     background-color: var(--pkd-color-secondary);
+    overflow: hidden;
 }
 
 /* Header */
@@ -93,33 +94,75 @@ body {
 .grid {
     display: flex;
     flex-wrap: wrap;
+    flex: 1 1 auto;
     gap: var(--pkd-spacing-s);
     padding: var(--pkd-spacing-m);
+    justify-content: space-between; /* Distribuye las tarjetas en la fila */
+    box-sizing: border-box; /* Asegura que el padding no cause desbordamiento */
+    max-width: 100%; /* Asegura que el ancho de la grid no exceda el contenedor */
+    
 }
 .card {
-    text-align: center;
+    display: flex; /* Para usar flexbox */
+    flex-direction: column; /* Para alinear los elementos de arriba a abajo */
+    /* justify-content: space-between; /* Espacio entre el logo, título y texto */
     width: 104px;
     height: 108px;
     border: 1px solid var(--pkd-color-light);
     border-radius: var(--pkd-border-radius-s);
-    padding: var(--pkd-spacing-s);
-    background: var(--pkd-color-secondary);
     box-shadow: var(--pkd-shadow-small);
+    overflow: hidden;
+    background: var(--pkd-color-secondary); 
+    position: relative;
 }
-.card img {
-    width: 80px;
-    height: auto;
+
+/* Fondo gris desde la mitad hacia abajo */
+.card-content {
+    position: absolute;
+    bottom: 0; /* Se coloca en la parte inferior de la tarjeta */
+    width: 100%; /* Ocupa todo el ancho */
+    height: 40%; /* Cubre la mitad inferior de la tarjeta */
+    background-color: var(--pkd-color-light); /
+    display: flex;
+    border-radius: var(--pkd-border-radius-xs);
 }
-.card h2 {
-    margin-top: var(--pkd-spacing-s);
-    font-size: var(--pkd-font-size-body1);
-    font-weight: bold;
-}
-.card p {
-    margin: 0;
-    color: var(--pkd-color-medium);
+
+/* ID del Pokémon */
+.pokemon-id {
+    padding-right: var(--pkd-spacing-s);
+    padding-top: var(--pkd-spacing-s);
+    padding-left: var(--pkd-spacing-s);
     font-size: var(--pkd-font-size-caption);
+    color: var(--pkd-color-medium);
+    display: flex;
+    justify-content: flex-end;
 }
+
+
+/* Imagen del Pokémon */
+.pokemon-img {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto;
+    z-index: 2;
+}
+
+
+/* Nombre del Pokémon */
+.card-content h2 {
+    padding-right: var(--pkd-spacing-s);
+    padding-top: var(--pkd-spacing-xl);
+    padding-left: var(--pkd-spacing-s);
+    padding-bottom: var(--pkd-spacing-xs) ;
+    font-size: var(--pkd-font-size-body3);
+    color: var(--pkd-color-dark);
+    text-align: center;
+    overflow: hidden; /* Asegura que no se desborde si el texto es largo */
+    text-overflow: ellipsis; /* Añadir "..." si el texto es demasiado largo */
+    white-space: nowrap; /* Asegura que el texto no se divida en varias líneas */
+    margin: 0;
+}
+
 
 /* Footer */
 .page-footer {

@@ -157,7 +157,7 @@ body {
     bottom: 0; /* Se coloca en la parte inferior de la tarjeta */
     width: 100%; /* Ocupa todo el ancho */
     height: 40%; /* Cubre la mitad inferior de la tarjeta */
-    background-color: var(--pkd-color-light); /
+    background-color: var(--pkd-color-light);
     padding: var(--pkd-spacing-xs);
     border-radius: var(--pkd-border-radius-xs);
     display: flex;

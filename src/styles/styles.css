@@ -371,10 +371,6 @@ body {
     background-color: var(--pkd-color-primary); /* Establecer el primer chip con el color primario */
 }
 
-/* Muestra el ícono de flecha solo si no es el primer o último Pokémon */
-.hidden {
-    display: none;
-}
 
 /* About, Moves, and Stats Sections */
 .character-description__subheader {

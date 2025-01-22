@@ -8,16 +8,18 @@
     <link rel="stylesheet" href="styles/resets.css">
     <link rel="stylesheet" href="styles/theming.css">
     <link rel="stylesheet" href="styles/styles.css">
-    <link rel="icon" href="assets/icons/favicon-96x96.png" />
+    <link rel="icon" href="assets/logotype/favicon-96x96.png" />
 </head>
 <body>
+    
     <main class="pokedex">
         <section class="character-detail">
          <!-- Aquí se insertará la información del personaje -->
         </section>
         <!-- Header -->
         <header class="page__header-container">
-            <button class="back-button" onclick="window.history.back()" aria-label="Go back">
+            <!-- Botón de "back" que lleva a la página principal -->
+            <button class="back-button" onclick="window.location.href='index.html'" aria-label="Go back">
                 <img src="assets/icons/arrow_back.webp" alt="Back" />
             </button>
             <h1 class="character-name" aria-live="polite"></h1>

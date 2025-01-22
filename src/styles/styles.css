@@ -44,22 +44,26 @@ body {
     gap: var(--pkd-spacing-s);
     align-items: center;
 }
+/* Normal state */
 .search-container {
     display: flex;
-    width: 100%; 
+    width: 100%;
     align-items: center;
     gap: var(--pkd-spacing-s);
     background: var(--pkd-color-secondary);
-    padding: var(--pkd-spacing-s) var(--pkd-spacing-m); 
+    padding: var(--pkd-spacing-s) var(--pkd-spacing-m);
     border-radius: var(--pkd-border-radius-m);
     box-shadow: var(--pkd-shadow-inset);
+    transition: all 0.3s ease;
 }
+/* Search Icon */
 .search-icon {
     width: 16px;
     height: 16px;
     flex-shrink: 0;
     filter: brightness(0) saturate(100%) invert(12%) sepia(87%) saturate(3868%) hue-rotate(343deg) brightness(94%) contrast(107%);
 }
+/* Search Input */
 .search-input {
     flex: 1;
     border: none;
@@ -73,6 +77,19 @@ body {
     background: transparent;
     padding: 0;
 }
+/* Focused state */
+.search-container.search-focused {
+    display: flex;
+    padding-left: 12px;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
+    border-radius: 16px;
+    background: var(--pkd-color-white);
+    box-shadow: var(--pkd-shadow-small);
+    outline: none;
+}
+/* Search Button */
 .search-button {
     display: flex;
     justify-content: center;
@@ -84,6 +101,7 @@ body {
     border-radius: var(--pkd-border-radius-m);
     cursor: pointer;
 }
+/* Search Button Icon */
 .search-button img {
     width: 16px;
     height: 16px;
@@ -95,20 +113,24 @@ body {
 .dropdown-container {
     position: relative;
 }
+/* Dropdown styles */
 .dropdown {
     position: absolute;
     top: 100%;
     right: 0;
-    background: var(--pkd-color-secondary);
-    border: 1px solid var(--pkd-color-light);
-    border-radius: var(--pkd-border-radius-s);
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    width: 150px;
-    box-shadow: var(--pkd-shadow-small);
-    z-index: 10;
+    z-index: 1000;
+    display: none;
+    background: var(--pkd-color-primary);
+    color: var(--pkd-color-white);
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: var(--pkd-shadow-large)
 }
+/* Oculto con la clase .hidden */
+.hidden {
+    display: none;
+}
+/* List items */
 .dropdown li {
     padding: var(--pkd-spacing-s);
     cursor: pointer;
@@ -120,9 +142,23 @@ body {
     background-color: var(--pkd-color-primary);
     color: var(--pkd-color-secondary);
 }
-.hidden {
-    display: none;
+/* List items seleccionados */
+.dropdown li.selected {
+    display: flex;
+    align-items: center;
+    gap: var(--pkd-spacing-s);
+    background: var(--pkd-color-white);
+    box-shadow: var(--pkd-shadow-small);
+    border-radius: var(--pkd-spacing-s);
 }
+.dropdown li:not(.selected) {
+    display: flex;
+    align-items: center;
+    gap: var(--pkd-spacing-s);
+    align-self: stretch;
+    background: none;
+}
+
 
 
 
@@ -216,11 +252,21 @@ body {
     padding: var(--pkd-spacing-m);
     background: var(--pkd-color-primary);
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     gap: var(--pkd-spacing-s);
+    position: relative;
 }
-
+.page__header-container::after {
+    content: "";
+    position: absolute;
+    width: 208px;
+    height: 208px;
+    background: url('assets/logotype/favicon-96x96.png') no-repeat center center;
+    opacity: 0.1;
+    right: 8px;
+    top: 8px;
+}
 .back-button {
     background: transparent;
     border: none;
@@ -238,7 +284,6 @@ body {
     color: var(--pkd-color-secondary);
     font-size: var(--pkd-font-size-headline);
     font-weight: 700;
-    text-align: left;
     flex: 1;
 }
 
@@ -250,6 +295,16 @@ body {
 }
 
 
+/* Estilo para la imagen de fondo */
+.background-image {
+    width: 208px;
+    height: 208px;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    opacity: 0.1;
+}
+
 
 
 
@@ -259,16 +314,31 @@ body {
 
 .character-detail__header {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    align-items: flex-end;
     height: 112px;
     background-color: var(--pkd-color-primary);
 }
 
+.character-detail__icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain; /* Asegura que la imagen mantenga sus proporciones */
+    cursor: pointer; /* Indica que es interactivo, útil si se utiliza para navegación */
+    margin: 0 8px; /* Espaciado opcional entre íconos */
+    filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(100deg) brightness(100%) contrast(100%) drop-shadow(0px 0px 0px var(--pkd-color-secondary));
+}
+
+
 .character-detail__img {
     width: 200px;
     height: 200px;
-    align-self: stretch;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 76px;
+    top: 33px;
 }
 
 /* chips */
@@ -286,6 +356,15 @@ body {
     padding: var(--pkd-spacing-xs) var(--pkd-spacing-s);
     border-radius: var(--pkd-border-radius-s);
     box-shadow: var(--pkd-shadow-small);
+}
+
+.type-chip.first-chip {
+    background-color: var(--pkd-color-primary); /* Establecer el primer chip con el color primario */
+}
+
+/* Muestra el ícono de flecha solo si no es el primer o último Pokémon */
+.hidden {
+    display: none;
 }
 
 /* About, Moves, and Stats Sections */
@@ -311,7 +390,6 @@ body {
 }
 .info-pokemon{
     display: flex;
- /* height: 412px;*/
     padding: 56px 20px 20px 20px;
     flex-direction: column;
     align-items: center;

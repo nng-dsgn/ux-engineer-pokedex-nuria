@@ -8,27 +8,34 @@
     <link rel="stylesheet" href="styles/resets.css">
     <link rel="stylesheet" href="styles/theming.css">
     <link rel="stylesheet" href="styles/styles.css">
-    <link rel="icon" href="assets/icons/favicon-96x96.png" />
+    <link rel="icon" href="assets/logotype/favicon-96x96.png" />
 </head>
 <body>
-    <header class="page__header-container">
-        <img alt="Logotype cabecera dragon ball" width="50px" height="50px" class="company__logo" src="assets/img/logotype_db-192x192.webp"/>
-        <ul class="page-nav__list">
-            <li><a title="Navegar a la página de documentación" href="https://google.com" class="page-nav__item">Docs</a></li>
-            <li><a title="Navegar a la página sobre nosotros" href="https://google.com" class="page-nav__item">About</a></li>
-            <li><a title="Solictar nuestro soporte" href="https://google.com" class="page-nav__item page-nav__item--primary">SUPPORT US</a></li>
-        </ul>
-    </header>
+    
+    <main class="pokedex">
+        <section class="character-detail">
+         <!-- Aquí se insertará la información del personaje -->
+        </section>
+        <!-- Header -->
+        <header class="page__header-container">
+            <!-- Botón de "back" que lleva a la página principal -->
+            <button class="back-button" onclick="window.location.href='index.html'" aria-label="Go back">
+                <img src="assets/icons/arrow_back.webp" alt="Back" />
+                <!-- Texto oculto para accesibilidad -->
+                <span class="sr-only">Volver a la página principal</span>
+            </button>
+            <h1 class="character-name" aria-live="polite" aria-atomic="true">Cargando nombre del Pokémon...</h1>
+            <h2 class="character-id" aria-live="polite" aria-atomic="true">Cargando ID del Pokémon...</h2>
+        </header>
 
-    <main>
-        <h1 class="page__title">Detalle del Personaje</h1>
-        <!-- Aquí se insertará la información del personaje -->
+        <section class="character-detail__container">
+            <!-- Aquí se insertará la información del personaje -->
+        </section>
     </main>
-    
-    
 
+    <!-- Footer -->
     <footer class="page-footer">
-        <p> 2024 Dragon Ball API. All rights reserved.</p>
+        <p> 2025 Pokedex API. All rights reserved.</p>
     </footer>
 
     <script src="scripts/data.js"></script>

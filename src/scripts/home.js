@@ -8,13 +8,14 @@ function renderPokemonCard(pokemon) {
 
   // Crear el contenido de la tarjeta
   card.innerHTML = `
-    <p class="pokemon-id">#${pokemon.id.toString().padStart(3, "0")}</p>
-    <img src="${pokemon.sprites.other["official-artwork"].front_default}" alt="${pokemon.name}" class="pokemon-img">
-    <div class="card-content">
-      <h2>${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h2>
-    </div>
+    <a href="detail.html?pokemonId=${pokemon.id}">
+      <p class="pokemon-id">#${pokemon.id.toString().padStart(3, "0")}</p>
+      <img src="${pokemon.sprites.other["official-artwork"].front_default}" alt="${pokemon.name}" class="pokemon-img">
+      <div class="card-content">
+        <h2>${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h2>
+      </div>
+    </a>
   `;
-
 
   // Añadir la tarjeta a la sección
   gridSection.appendChild(card);

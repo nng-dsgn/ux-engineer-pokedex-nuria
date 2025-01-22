@@ -59,7 +59,7 @@ function getTypeColor(type) {
       ice: '#98D8D8',
       dark: '#705848',
   };
-  return typeColors[type] || '#FFFFFF'; // Retorna blanco si no está definido
+  return typeColors[type] || '--pkd-color-primary'; // Retorna color primario si no está definido
 }
 
 // Función para renderizar la interfaz de detalles del Pokémon
@@ -80,6 +80,16 @@ function renderDetailPokemonUI(pokemon, pokemonId, maxPokemonId) {
   const finalColor = getTypeColor(primaryColor) || getTypeColor(secondaryColor);
   document.documentElement.style.setProperty('--pkd-color-primary', finalColor);
 
+    const statAbbreviations = {
+      "hp": "HP",
+      "attack": "ATK",
+      "defense": "DEF",
+      "special-attack": "SATK",
+      "special-defense": "SDEF",
+      "speed": "SPD"
+    };
+
+
   // Mostrar la interfaz con los detalles
   characterDetail.innerHTML = `
  
@@ -96,28 +106,45 @@ function renderDetailPokemonUI(pokemon, pokemonId, maxPokemonId) {
 
       <section class="info-pokemon">
           <section class="character-detail__type">
-              ${pokemon.types.map((type, index) => `
-                  <div class="type-chip ${index === 0 ? 'first-chip' : ''}">${type.type.name}</div>
-              `).join('')}
-          </section>
+            ${pokemon.types.map((type, index) => {
+                const typeColor = getTypeColor(type.type.name);  // Obtener el color del tipo
+                // Capitalizamos la primera letra del tipo
+                const capitalizedType = type.type.name.charAt(0).toUpperCase() + type.type.name.slice(1);
+                return `
+                    <div class="type-chip ${index === 0 ? 'first-chip' : ''} ${index === 1 ? 'second-chip' : ''}" style="background-color: ${typeColor};">
+                        ${capitalizedType}
+                    </div>
+                `;
+            }).join('')}
+        </section>
 
+          <h3 class="character-description__subheader">About</h3>
           <section class="character-detail__about">
-              <h3 class="character-description__subheader">About</h3>
+              
               <div class="character-detail__info">
                   <div class="info-item">
                       <section class="info-lisitem">
                           <img src="assets/icons/weight.webp" alt="Weight Icon" />
-                          <p class="info-text">${pokemon.weight}</p>
+                          <p class="info-text">${pokemon.weight} kg</p>
                       </section>
                       <p class="info-caption">Weight</p>
                   </div>
+
+                  <!-- Divider between Weight and Height -->
+                  <div class="divider"></div>
+
                   <div class="info-item">
                       <section class="info-lisitem">
                           <img src="assets/icons/straighten.webp" alt="Height Icon" />
-                          <p class="info-text">${pokemon.height}</p>
+                          <p class="info-text">${pokemon.height} m</p>
                       </section>
                       <p class="info-caption">Height</p>
                   </div>
+
+                  <!-- Divider between Height and Abilities -->
+                  <div class="divider"></div>
+
+
                   <div class="info-item">
                       <p class="info-text">${pokemon.abilities.map(ability => ability.ability.name).join(", ")}</p>
                       <p class="info-caption">Abilities</p>
@@ -126,21 +153,41 @@ function renderDetailPokemonUI(pokemon, pokemonId, maxPokemonId) {
           </section>
 
           <section class="character-detail__moves">
-              <p>${pokemon.moves.map(move => move.move.name).join(", ")}</p>
+              <p class="text__moves">${pokemon.moves.map(move => move.move.name).join(", ")}</p>
           </section>
 
-          <section class="character-detail__base-stats">
-              <h3 class="character-description__subheader">Base Stats</h3>
-              ${pokemon.stats.map(stat => `
-                  <div class="base-stat">
-                      <p>${stat.stat.name.toUpperCase()}</p>
-                      <div class="stat-bar">
-                          <input type="range" value="${stat.base_stat}" max="100" disabled />
-                          <span class="stat-score">${stat.base_stat}</span>
+          <h3 class="character-description__subheader">Base Stats</h3>
+            <section class="character-detail__base-stats">
+                <div class="stat-columns">
+                    <div class="stat-column__label">
+                        ${pokemon.stats.map(stat => `
+                            <p class="label"><label for="${stat.stat.name}">${statAbbreviations[stat.stat.name] || stat.stat.name.toUpperCase()}</label></p>
+                        `).join("")}
+                    </div>
+
+                     <div class="stat-column divider">
+                        ${pokemon.stats.map(() => `
+                            <div class="divider-line"></div>
+                        `).join("")}
+                    </div>
+
+                    <!-- Columna de datos -->
+                      <div class="stat-column__data">
+                          ${pokemon.stats.map(stat => `
+                              <p class="stat-data">${stat.base_stat}</p>
+                          `).join("")}
                       </div>
-                  </div>
-              `).join("")}
-          </section>
+
+                    <!-- Columna de barras -->
+                    <div class="stat-column__charts">
+                        ${pokemon.stats.map(stat => `
+                            <div class="stat-chart">
+                                <div class="stat-chart-bar" style="width: ${stat.base_stat}%"></div>
+                            </div>
+                        `).join("")}
+                    </div>
+                </div>
+            </section>
       </section>
   `;
 

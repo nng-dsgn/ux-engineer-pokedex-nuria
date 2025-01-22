@@ -10,10 +10,12 @@ body {
 .pokedex {
     width: 360px;
     height: 640px;
-    border: var(--pkd-border-width) solid var(--pkd-color-primary);
-    background-color: var(--pkd-color-secondary);
+    border: var(--pkd-border-width);
+    background-color: var(--pkd-color-primary);
     overflow: hidden;
+    padding: 4px;
 }
+
 
 /* Header */
 .header-container {
@@ -54,7 +56,6 @@ body {
     padding: var(--pkd-spacing-s) var(--pkd-spacing-m);
     border-radius: var(--pkd-border-radius-m);
     box-shadow: var(--pkd-shadow-inset);
-    transition: all 0.3s ease;
 }
 /* Search Icon */
 .search-icon {
@@ -164,15 +165,18 @@ body {
 
 /* Grid */
 .grid {
+    background-color: var(--pkd-color-white);
+    border-radius: var(--pkd-spacing-s);
     display: flex;
     flex-wrap: wrap;
-    flex: 1 1 auto;
     gap: var(--pkd-spacing-s);
     padding: var(--pkd-spacing-m);
     justify-content: space-between; /* Distribuye las tarjetas en la fila */
     box-sizing: border-box; /* Asegura que el padding no cause desbordamiento */
     max-width: 100%; /* Asegura que el ancho de la grid no exceda el contenedor */
-    
+    padding: 24px 12px 0px 12px;
+    align-items: flex-start;
+    box-shadow: var(--pkd-shadow-inset);
 }
 .card {
     display: flex; /* Para usar flexbox */
@@ -326,7 +330,7 @@ body {
 .character-detail__header {
     display: flex;
     justify-content: space-between;
-    padding: 16px 20px;
+    padding: var(--pkd-spacing-l) 20px;
     align-items: flex-end;
     height: 112px;
     background-color: var(--pkd-color-primary);
@@ -360,17 +364,24 @@ body {
 
 .type-chip {
     background-color: var(--pkd-color-light);
-    color: var(--pkd-color-dark);
+    color: var(--pkd-color-white);
+    font-weight: 700;
     font-size: var(--pkd-font-size-body2);
     padding: var(--pkd-spacing-xs) var(--pkd-spacing-s);
     border-radius: var(--pkd-border-radius-s);
-    box-shadow: var(--pkd-shadow-small);
 }
 
+
+
+/* Primera chip */
 .type-chip.first-chip {
     background-color: var(--pkd-color-primary); /* Establecer el primer chip con el color primario */
 }
 
+/* Segunda chip */
+.type-chip.second-chip {
+    background-color: var(--pkd-color-secondary); /* Color secundario para la segunda chip */
+}
 
 /* About, Moves, and Stats Sections */
 .character-description__subheader {
@@ -395,13 +406,14 @@ body {
 }
 .info-pokemon{
     display: flex;
+    /* height: 412px;*/
     padding: 56px 20px 20px 20px;
     flex-direction: column;
     align-items: center;
     gap: var(--pkd-spacing-l);
-    border-radius: var(--pkd-border-radius-s);
-    background-color: var(--pkd-color-white);
-    align-self: stretch;
+    border-radius: var(--pkd-spacing-s);
+    background: var(--pkd-color-white);
+    box-shadow: var(--pkd-shadow-inset);
 }
 
 .info-item {
@@ -412,11 +424,13 @@ body {
     padding-top: var(--pkd-spacing-s);
     padding-bottom: var(--pkd-spacing-s);
     width: 100%;
+    gap: var(--pkd-spacing-xs);
 }
 
 .info-lisitem{
-    display: flex ;
-    flex-direction: row;
+    display: flex;
+    align-items: center;
+    gap: var(--pkd-spacing-s);
 }
 .info-item img {
     width: 16px;
@@ -427,65 +441,122 @@ body {
     font-size: var(--pkd-font-size-body3);
     color: var(--pkd-color-dark);
     margin-top: var(--pkd-spacing-xs);
+    padding: var(--pkd-spacing-s) 0px;
 }
 
 .info-caption{
     font-size: var(--pkd-font-size-caption);
 }
 
+.divider {
+    width: 1px;
+    align-self: stretch;
+    background: var(--pkd-color-light);
+}
+
+
 /* Moves */
 .character-detail__moves{
-    padding: var(--pkd-spacing-xs);
+    padding-top: var(--pkd-spacing-s);
+    padding-bottom: var(--pkd-spacing-s);
+}
+
+.text__moves{
+    font-size: var(--pkd-font-size-body3);
     display: -webkit-box; /* Habilita el comportamiento de caja flexible */
     -webkit-line-clamp: 2; /* Limita el texto a 2 líneas */
     -webkit-box-orient: vertical; /* Orienta las cajas en dirección vertical */
     overflow: hidden; /* Oculta el contenido que excede las líneas */
-    text-overflow: ellipsis; /* Agrega puntos suspensivos al final del texto truncado */
-    width: 100%;
-
 }
 
-.character-detail__base-stats{
-    padding: var(--pkd-spacing-xs);
+
+.character-detail__base-stats {
+    align-self: stretch;
+}
+
+/* Contenedor de las columnas de estadísticas */
+.stat-columns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly; 
+    gap: var(--pkd-spacing-xs);
+}
+
+/* Estilo de las columnas */
+.stat-column {
     display: flex;
     flex-direction: column;
-    width: 100%;
-}
-
-
-/* Base Stats */
-.base-stat {
-    display: flex;
-    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--pkd-spacing-xs);
     align-items: center;
-    margin-bottom: var(--pkd-spacing-s);
 }
 
-.stat-bar {
-    flex: 1;
-    height: 8px;
-    background: var(--pkd-color-light);
-    border-radius: var(--pkd-border-radius-xs);
-    overflow: hidden;
-    position: relative;
+.stat-column__label{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--pkd-spacing-xs);
+    padding-right: var(--pkd-spacing-xs);
+    justify-content: space-evenly;
 }
 
-.stat-bar input {
+/* Estilo del label (texto de la estadística) */
+.label {
+    width: 27px;
+    text-align: right;
+    font-size: var(--pkd-font-size-body3);
+    font-weight: 700;
+    color: var(--pkd-color-primary);
+    text-transform: uppercase;  /* Asegura que siempre esté en mayúsculas */
+}
+
+/* Divider (Líneas horizontales) */
+.divider-line {
     width: 100%;
-    height: 100%;
-    background-color: var(--pkd-color-primary);
-    border: none;
-    border-radius: var(--pkd-border-radius-xs);
-    opacity: 0.5;
+    height: 1px;
+    background-color: var(--pkd-color-light);
+    margin: var(--pkd-spacing-s) 0;
 }
 
-.stat-score {
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: var(--pkd-font-size-body2);
+.stat-column__data{
+    padding-left: var(--pkd-spacing-xs);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--pkd-spacing-xs);
+    justify-content: space-evenly;
+}
+/* Estilo para los valores de las estadísticas */
+.stat-data {
+    font-size: var(--pkd-font-size-body3);
     color: var(--pkd-color-dark);
+}
+
+
+.stat-column__charts{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--pkd-spacing-xs);
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+/* Estilo para el gráfico de barra */
+.stat-chart {
+    width: 100%;
+    background-color: var(--pkd-color-background);
+    border-radius: var(--pkd-border-radius-s);
+}
+
+.stat-chart-bar {
+    max-width: 100%;
+    height: 4px;
+    width: 100%;
+    background-color: var(--pkd-color-primary);
+    border-radius: var(--pkd-border-radius-s);
+    position: relative;
+    min-width: 10px; 
 }
 
 

@@ -21,9 +21,11 @@
             <!-- Botón de "back" que lleva a la página principal -->
             <button class="back-button" onclick="window.location.href='index.html'" aria-label="Go back">
                 <img src="assets/icons/arrow_back.webp" alt="Back" />
+                <!-- Texto oculto para accesibilidad -->
+                <span class="sr-only">Volver a la página principal</span>
             </button>
-            <h1 class="character-name" aria-live="polite"></h1>
-            <h2 class="character-id" aria-live="polite"></h2>
+            <h1 class="character-name" aria-live="polite"><!-- Se actualizará con JS --></h1>
+            <h2 class="character-id" aria-live="polite"><!-- Se actualizará con JS --></h2>
         </header>
 
         <section class="character-detail__container">

@@ -280,6 +280,18 @@ body {
     filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(100deg) brightness(100%) contrast(100%) drop-shadow(0px 0px 0px var(--pkd-color-secondary));
 }
 
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
 .character-name {
     color: var(--pkd-color-secondary);
     font-size: var(--pkd-font-size-headline);
@@ -310,7 +322,6 @@ body {
 
 /* Estilo para los contenedores y secciones adicionales */
 
-/* imagen */
 
 .character-detail__header {
     display: flex;
@@ -332,8 +343,6 @@ body {
 
 
 .character-detail__img {
-    width: 200px;
-    height: 200px;
     width: 200px;
     height: 200px;
     position: absolute;
